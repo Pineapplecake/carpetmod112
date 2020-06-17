@@ -44,7 +44,7 @@ public class CarpetSettings
     public static boolean locked = false;
 
     // TODO: replace these constants at build time
-    public static final String carpetVersion = "v20_05_29";
+    public static final String carpetVersion = "v20_06_14";
     public static final String minecraftVersion = "1.12.2";
     public static final String mcpMappings = "39-1.12";
 
@@ -90,7 +90,7 @@ public class CarpetSettings
     @Rule(desc = "Enables /unload command to inspect chunk unloading order", category = COMMANDS)
     public static boolean commandUnload = true;
 
-    @Rule(desc = "Enables /c and /s commands to quickly switch between camera and survival modes", category = COMMANDS, extra = {
+    @Rule(desc = "Enables /c and /s commands to quickly switch between spectator and server modes", category = COMMANDS, extra = {
             "/c and /s commands are available to all players regardless of their permission levels"
     })
     public static boolean commandCameramode = true;
@@ -706,8 +706,8 @@ public class CarpetSettings
     @Rule(desc = "Fixes entity tracker not rendering entitys such as players in minecarts or boats.", category = FIX)
     public static boolean entityTrackerFix;
 
-    @Rule(desc = "Players go invisible after using portals.", category = FIX)
-    public static boolean portalTurningPlayersInvisibleFix;
+    @Rule(desc = "Players go invisible when dying or using portals.", category = FIX)
+    public static boolean playersTurningInvisibleFix;
 
     @Rule(desc = "Fixes updates suppression causing server crashes.", category = FIX)
     public static boolean updateSuppressionCrashFix;
@@ -737,7 +737,13 @@ public class CarpetSettings
     @Rule(desc = "Fixes player position truncation causing chunks to load with one block offset to chunk boarders in negative coordinates.", category = FIX)
     public static boolean playerChunkLoadingFix = false;
 
+    @Rule(desc = "Sends invisible duplicate UUID entities to clients", category = FIX)
+    public static boolean sendDuplicateEntitiesToClients = false;
+
     // ===== FEATURES ===== //
+
+    @Rule(desc = "Chorus fruit can be shot with an arrow to have it pop as an item as in the future minecraft versions.", category = FEATURE)
+    public static boolean chorusFruitShootable;
 
     @Rule(desc = "Elytras can be traded by Leatherworker villagers.", category = FEATURE)
     public static boolean elytraTradable = false;
