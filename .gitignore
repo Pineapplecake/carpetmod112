@@ -12,9 +12,6 @@
 *.ipr
 *.iws
 
-# cscope
-cscope.*
-
 # Gradle
 /build
 /.gradle
