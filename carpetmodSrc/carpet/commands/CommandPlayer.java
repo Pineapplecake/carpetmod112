@@ -10,6 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentString;
 
 import javax.annotation.Nullable;
 
@@ -125,6 +126,19 @@ public class CommandPlayer extends CommandCarpetBase
             player.actionPack.swapHands();
             return;
         }
+	if ("hotbarSlot".equalsIgnoreCase(action))
+	{
+	    if (args.length > 2)
+	    {
+		int slotId = parseInt(args[2], 0, 8);
+		player.actionPack.setHotbarSlot(slotId);
+	    }
+	    else
+	    {
+		int slotId = player.inventory.currentItem;
+		msg(sender, new TextComponentString("Current hotbar slot for" + playerName + "is" + slotId));
+	    }
+	}
         if ("spawn".equalsIgnoreCase(action))
         {
             if (player != null)
@@ -334,7 +348,7 @@ public class CommandPlayer extends CommandCarpetBase
             //currently for all, needs to be restricted for Fake plaeyrs
             return getListOfStringsMatchingLastWord(args,
                     "spawn","kill","attack","use","jump","stop","shadow",
-                    "swapHands","drop","mount","dismount",
+                    "swapHands","hotbarSlot","drop","mount","dismount",
                     "move","sneak","sprint","look", "despawn", "respawn");
         }
         if (args.length == 3 && (args[1].matches("^(?:use|attack|jump)$")))

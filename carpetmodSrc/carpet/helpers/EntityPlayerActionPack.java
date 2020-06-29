@@ -16,6 +16,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraft.network.play.client.CPacketHeldItemChange;
 import net.minecraft.network.play.client.CPacketPlayerDigging;
 import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.EnumActionResult;
@@ -276,10 +277,16 @@ public class EntityPlayerActionPack
         player.connection.processPlayerDigging(new CPacketPlayerDigging(CPacketPlayerDigging.Action.SWAP_HELD_ITEMS,null, null));
     }
 
+    public void setHotbarSlot(int slotId)
+    {
+	player.connection.processHeldItemChange(new CPacketHeldItemChange(slotId));
+    }
+
     public void dropItem()
     {
         player.connection.processPlayerDigging(new CPacketPlayerDigging(CPacketPlayerDigging.Action.DROP_ITEM,null, null));
     }
+
     public void mount()
     {
         List<Entity> entities = player.world.getEntitiesInAABBexcluding(
