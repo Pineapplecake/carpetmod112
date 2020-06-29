@@ -42,7 +42,7 @@ public class CommandPlayer extends CommandCarpetBase
      */
     public String getUsage(ICommandSender sender)
     {
-        return "player <spawn|kill|stop|drop|swapHands|mount|dismount> <player_name>  OR /player <use|attack|jump> <player_name> <once|continuous|interval.. ticks>";
+        return "/player <player_name> <spawn|kill|stop|drop|swapHands|mount|dismount> OR /player <player_name> <use|attack|jump> <once|continuous|interval.. ticks>";
     }
 
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException

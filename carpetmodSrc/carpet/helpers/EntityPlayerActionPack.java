@@ -18,6 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.network.play.client.CPacketHeldItemChange;
 import net.minecraft.network.play.client.CPacketPlayerDigging;
+import net.minecraft.network.play.server.SPacketHeldItemChange;
 import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -280,6 +281,7 @@ public class EntityPlayerActionPack
     public void setHotbarSlot(int slotId)
     {
 	player.connection.processHeldItemChange(new CPacketHeldItemChange(slotId));
+	player.connection.sendPacket(new SPacketHeldItemChange(slotId));
     }
 
     public void dropItem()
