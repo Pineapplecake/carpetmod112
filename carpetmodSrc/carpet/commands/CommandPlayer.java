@@ -136,8 +136,9 @@ public class CommandPlayer extends CommandCarpetBase
 	    else
 	    {
 		int slotId = player.inventory.currentItem;
-		msg(sender, new TextComponentString("Current hotbar slot for" + playerName + "is" + slotId));
+		msg(sender, new TextComponentString("Current hotbar slot for " + playerName + " is " + slotId));
 	    }
+	    return;
 	}
         if ("spawn".equalsIgnoreCase(action))
         {
