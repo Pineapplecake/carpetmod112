@@ -44,7 +44,7 @@ public class CarpetSettings
     public static boolean locked = false;
 
     // TODO: replace these constants at build time
-    public static final String carpetVersion = "v20_06_14";
+    public static final String carpetVersion = "v20_08_04";
     public static final String minecraftVersion = "1.12.2";
     public static final String mcpMappings = "39-1.12";
 
@@ -133,6 +133,9 @@ public class CarpetSettings
 
     @Rule(desc = "Restricts the use of /c in survival mode.", category = COMMANDS)
     public static boolean cameraModeSurvivalRestrictions;
+
+    @Rule(desc = "Enables /lagspike for manually induced lag spikes", category = COMMANDS)
+    public static boolean commandLagspike;
 
     @Rule(desc = "Reduces the permition level to kick players for everyone.", category = COMMANDS)
     public static boolean publicKick;
@@ -742,6 +745,15 @@ public class CarpetSettings
 
     // ===== FEATURES ===== //
 
+    @Rule(desc = "Enables skyblock on 1.12, all blocks but end portal frames will be removed in newly generated chunks.", category = FEATURE, extra = "WARNING! Don't turn on if not planning to play skyblock.")
+    public static boolean skyblock;
+
+    @Rule(desc = "Removes the dimension loading where after 300 gameticks all entitys freeze without players.", category = FEATURE)
+    public static boolean dimensionLoading;
+
+    @Rule(desc = "Make potions instant drinkable.", category = FEATURE)
+    public static boolean instantDrinkPotion;
+
     @Rule(desc = "Chorus fruit can be shot with an arrow to have it pop as an item as in the future minecraft versions.", category = FEATURE)
     public static boolean chorusFruitShootable;
 
@@ -925,6 +937,9 @@ public class CarpetSettings
 
     @Rule(desc = "Allows bedrock to drop as bedrock item if broken, similar to 1.8 and lower versions.", category = EXPERIMENTAL)
     public static boolean bedrockDropsAsItem;
+
+    @Rule(desc = "Disables placement of the bedrock item", category = FEATURE)
+    public static boolean disableBedrockPlacement = false;
 
     // ===== API ===== //
 
