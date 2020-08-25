@@ -42,7 +42,7 @@ public class CommandPlayer extends CommandCarpetBase
      */
     public String getUsage(ICommandSender sender)
     {
-        return "/player <player_name> <spawn|kill|stop|drop|swapHands|mount|dismount> OR /player <player_name> <use|attack|jump> <once|continuous|interval.. ticks>";
+	return "/player <playerName> <spawn|kill|attack|use|jump|stop|shadow|swapHands|hotbarSlot|drop|mount|dismount|move|sneak|sprint|look|despawn|respawn> ...";
     }
 
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException
@@ -375,7 +375,7 @@ public class CommandPlayer extends CommandCarpetBase
             if (args.length <= 5)
             {
                 return getTabCompletionCoordinate(args, 2, targetPos);
-            }
+	    }
             else if (args.length <= 7)
             {
                 return getListOfStringsMatchingLastWord(args, "0.0");
